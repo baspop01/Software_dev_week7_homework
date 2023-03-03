@@ -16,7 +16,7 @@ pipeline {
                     def jsonData = readJSON file: 'data.json'
                     echo "Name: ${jsonData.name}, Age: ${jsonData.age}"
                     echo 'Start Trigger to send name and age to slave'
-                    build job: 'slave', parameters: [string(name: 'NAME', value: jsonData.name), string(name: 'Ages', value: jsonData.age)]
+                    build job: 'slave', parameters: [string(name: 'NAME', value: jsonData.name), string(name: 'Ages', value: jsonData.age.toString())]
                 }
             }
         }
