@@ -15,7 +15,7 @@ pipeline {
         stage('Tigger the Slave Jobs') {
             steps {
                 script {
-                    def data = new File('data.json').text
+                    def data = readFile 'data.json'
                     def jsonSlurper = new JsonSlurper()
                     def jsonData = jsonSlurper.parseText(data)
                     echo "Name: ${jsonData.name}, Age: ${jsonData.age}"
