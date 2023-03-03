@@ -4,6 +4,7 @@ pipeline {
     stages { 
         stage('Build') { 
             steps { 
+                echo "Start Slave"
                 sh "python myscript.py ${params.NAME} --age ${params.Ages}" 
                 } 
             } 
